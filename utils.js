@@ -2,6 +2,9 @@ const readline = require('readline');
 const {
   readFile,
 } = require('fs');
+const {
+  EOL,
+} = require('os');
 
 
 const readLine = (question) => new Promise((resolve) => {
@@ -17,7 +20,7 @@ const readLine = (question) => new Promise((resolve) => {
   });
 });
 
-const splitBufferByLines = (buffer) => buffer.toString().split('\n').filter(Boolean);
+const splitBufferByLines = (buffer) => buffer.toString().split(EOL).filter(Boolean);
 
 const readFilePromise = (filename) => new Promise((resolve, reject) => readFile(filename, (error, data) => {
   if (error) {
